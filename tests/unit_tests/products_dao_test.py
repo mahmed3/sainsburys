@@ -1,6 +1,6 @@
 import unittest
 
-from sainsburys.products_dao import ProductsDao
+from sainsburys.dao.products_dao import ProductsDao
 
 
 class ProductsDaoTest(unittest.TestCase):

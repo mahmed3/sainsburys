@@ -1,8 +1,9 @@
-from bs4 import BeautifulSoup
 import urllib.request
 
-from sainsburys.basic_product_info import BasicProductInfo
-from sainsburys.detailed_product_info import DetailedProductInfo
+from bs4 import BeautifulSoup
+
+from sainsburys.domain.basic_product_info import BasicProductInfo
+from sainsburys.domain.detailed_product_info import DetailedProductInfo
 
 
 class ProductsDao(object):
@@ -35,5 +36,5 @@ class ProductsDao(object):
         unit_price = product_html.find('p', class_='pricePerUnit').text.strip()
         unit_price = unit_price.replace(";/unit", "")
         unit_price = unit_price.replace("&pound", "")
-        unit_price = float(unit_price)
+        unit_price = float(unit_price) #TODO decimal
         return unit_price

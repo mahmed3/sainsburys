@@ -1,5 +1,5 @@
-from sainsburys.product import Product
-from sainsburys.products_dao import ProductsDao
+from sainsburys.dao.products_dao import ProductsDao
+from sainsburys.domain.product import Product
 
 
 class ProductsService():
@@ -16,4 +16,4 @@ class ProductsService():
             product_details = self.products_dao.extract_detailed_product_info(details_page)
             product = Product(basic_product_info.title, product_details.size, basic_product_info.unit_price, product_details.description)
             products.append(product)
-        return basic_products_info
+        return products

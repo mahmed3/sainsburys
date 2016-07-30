@@ -1,6 +1,6 @@
 import unittest
 
-from sainsburys.products_service import ProductsService
+from sainsburys.service.products_service import ProductsService
 
 
 class ProductsServiceTest(unittest.TestCase):
