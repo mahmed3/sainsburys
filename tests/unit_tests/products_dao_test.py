@@ -1,6 +1,5 @@
 import unittest
 
-from sainsburys.basic_product_info import BasicProductInfo
 from sainsburys.products_dao import ProductsDao
 
 
