@@ -1,16 +1,19 @@
+import os
+import sys
+sys.path.append(os.getcwd())
+sys.path.append(os.pardir)
+
+from sainsburys.dao.products_dao import ProductsDao
 from sainsburys.products_processor import ProductsProcessor
+from sainsburys.request.webpage_requester import WebPageRequester
 from sainsburys.service.products_service import ProductsService
 
 
 def main():
-    print("Sainsbury’s Software Engineering Test")
-    print("> Retrieving products...")
-    products = ProductsService().get_products()
-    print("Retrieved", len(products), "products")
-    print("> Processing products...")
+    products_service = ProductsService(ProductsDao(WebPageRequester()))
+    products = products_service.get_products()
     results = ProductsProcessor().process(products)
     print(results)
-    print("> Done")
 
 if __name__ == '__main__':
     main()

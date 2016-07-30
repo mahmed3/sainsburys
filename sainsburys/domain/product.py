@@ -4,3 +4,6 @@ class Product:
         self.size = size
         self.unit_price = unit_price
         self.description = description
+
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__

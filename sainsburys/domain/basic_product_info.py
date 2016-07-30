@@ -3,3 +3,6 @@ class BasicProductInfo:
         self.title = title
         self.unit_price = unit_price
         self.details_url = details_url
+
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__
