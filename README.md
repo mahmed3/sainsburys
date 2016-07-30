@@ -8,4 +8,4 @@ How to run the tests
 
 Dependencies
 ---
-See requirements.txt for a complete list of dependencies
+This project requires Python 3.5+ and the dependencies listed in the requirements.txt file. To install the dependencies listed there, run this command: `pip install -r requirements.txt`
