@@ -3,9 +3,13 @@ import decimal
 from bs4 import BeautifulSoup
 
 from sainsburys.domain.basic_product_info import BasicProductInfo
-from sainsburys.domain.detailed_product_info import DetailedProductInfo
+from sainsburys.domain.details_page_info import DetailsPageInfo
 
-
+'''
+    ProductsDao provides methods to retrieve information from the products page, and the products' details pages.
+    The actual web request is delegated to the supplied WebPageRequester.
+    Once a page has been retrieved, the HTML is then inspected, and the relevant contents extracted.
+'''
 class ProductsDao:
     PRODUCTS_PAGE_URL = "http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html"
 
@@ -18,7 +22,7 @@ class ProductsDao:
 
     def get_product_details(self, url):
         contents = self.webpage_requester.retrieve_webpage(url)
-        return self.extract_detailed_product_info(contents)
+        return self.extract_details_page_info(contents)
 
     def extract_basic_product_info(self, webpage):
         contents = BeautifulSoup(webpage, "html.parser")
@@ -30,11 +34,11 @@ class ProductsDao:
         unit_price = self.extract_unit_price(product_html)
         return BasicProductInfo(product_title, unit_price, url)
 
-    def extract_detailed_product_info(self, webpage):
+    def extract_details_page_info(self, webpage):
         size = "%.1fkb" % (len(webpage) / 1000)  # Rounded to 1dp. (divide by 1024?)
         contents = BeautifulSoup(webpage, "html.parser")
         description = contents.find("div", class_="productText").text
-        return DetailedProductInfo(size, description)
+        return DetailsPageInfo(size, description)
 
     def extract_product_title(self, product_html):
         item_link = product_html.find('div', class_='productInfo').h3.a

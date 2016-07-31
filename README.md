@@ -1,7 +1,7 @@
 #Software Engineering Test
 
 [![Build Status](https://travis-ci.org/mahmed3/sainsburys.svg?branch=master)](https://travis-ci.org/mahmed3/sainsburys)
-[![Coverage Status](https://coveralls.io/repos/github/mahmed3/sainsburys/badge.svg?branch=master&dummy_param=1)](https://coveralls.io/github/mahmed3/sainsburys?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/mahmed3/sainsburys/badge.svg?branch=master&dummy_param=2)](https://coveralls.io/github/mahmed3/sainsburys?branch=master)
 
 Dependencies
 ---

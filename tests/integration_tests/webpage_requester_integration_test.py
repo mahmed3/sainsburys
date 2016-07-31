@@ -3,7 +3,7 @@ import unittest
 from sainsburys.request.webpage_requester import WebPageRequester
 
 
-class WebPageRequesterIntegerationTest(unittest.TestCase):
+class WebPageRequesterIntegrationTest(unittest.TestCase):
     def setUp(self):
         self.webpage_requester = WebPageRequester()
         self.url = "http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html"

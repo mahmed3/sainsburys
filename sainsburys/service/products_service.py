@@ -1,6 +1,9 @@
 from sainsburys.domain.product import Product
 
-
+'''
+    Products service retrieves product information using the supplied ProductDao.
+    It retrieves and combines both the basic product information and detailed product information.
+'''
 class ProductsService:
 
     def __init__(self, product_dao):

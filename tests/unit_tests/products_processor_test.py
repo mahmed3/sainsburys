@@ -9,7 +9,7 @@ class ProductsProcessorTest(unittest.TestCase):
         self.products_processor = ProductsProcessor()
         self.products = [Product("Prod1", "Size1", 1.2, "Desc1"), Product("Prod2", "Size2", 3.4, "Desc2")]
 
-    def test_get_response(self):
+    def test_process_products_returns_expected_response(self):
         actual = self.products_processor.process_products(self.products)
         self.assertEqual(actual, self.get_expected())
 

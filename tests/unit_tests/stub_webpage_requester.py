@@ -1,12 +1,15 @@
-from sainsburys.request.abstract_webpage_requester import AbstractWebPageRequester
-from tests.unit_tests import test_utils
+import os
 
-
-class StubWebPageRequester(AbstractWebPageRequester):
+# Stub web page requester - returns contents from files on local disk
+class StubWebPageRequester:
     PRODUCTS_PAGE = "http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html"
+    RESOURCES_PATH = os.path.join(os.path.dirname(__file__), 'resources/')
 
     def retrieve_webpage(self, url):
         if url == StubWebPageRequester.PRODUCTS_PAGE:
-            return test_utils.read_file('tests/unit_tests/resources/5_products.html')
+            return self.read_file('%s5_products.html' % StubWebPageRequester.RESOURCES_PATH)
         else:
-            return test_utils.read_file('tests/unit_tests/resources/sainsburys-apricot-ripe---ready-320g.html')
+            return self.read_file('%ssainsburys-apricot-ripe---ready-320g.html' % StubWebPageRequester.RESOURCES_PATH)
+
+    def read_file(self, path):
+        return open(path, 'r').read()

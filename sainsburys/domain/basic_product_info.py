@@ -1,3 +1,4 @@
+# BasicProductInfo represents the pertinent information for a product on the main products page
 class BasicProductInfo:
     def __init__(self, title, unit_price, details_url):
         self.title = title
